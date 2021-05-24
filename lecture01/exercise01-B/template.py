@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 '''
-Exercise 01-A: Line Totals
+Exercise 01-B: Fixed Totals
 '''
 
 import sys

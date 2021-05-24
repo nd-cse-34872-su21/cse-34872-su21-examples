@@ -1,4 +1,4 @@
-// Exercise 01-A: Line Totals
+// Exercise 01-B: Fixed Totals
 
 #include <iostream>
 #include <string>
