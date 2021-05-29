@@ -5,7 +5,7 @@ v = [1, 2, 3]       # Create dynamic array
 v.append(4)         # Append to back of array
 v.insert(0, 0)      # Prepend to front of array
 
-print(len(v))       # Display n
+print(len(v))       # Display number of elements
 for e in v:         # Traverse elements
     print(e)
 
