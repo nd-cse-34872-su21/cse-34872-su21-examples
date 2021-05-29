@@ -11,4 +11,4 @@ for e in v:         # Traverse elements
 
                     # Traverse elements with index
 for i, e in enumerate(v):
-    print('{}: {}'.format(i, e))
+    print(f'{i}: {e}')
