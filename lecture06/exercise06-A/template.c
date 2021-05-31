@@ -1,4 +1,4 @@
-/* Exercise 13-A: subsets */
+/* subsets */
 
 #include <stdio.h>
 
