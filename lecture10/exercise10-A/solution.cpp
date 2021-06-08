@@ -49,16 +49,16 @@ void load_graph(Graph &g) {
 
 // Depth-First-Search (recursive)
 
-void walk_graph_dfs_rec(Graph &g, int v, set<int> &marked) {
+void walk_graph_dfs_rec(Graph &g, int v, set<int> &visited) {
     // TODO
-    if (marked.count(v))
+    if (visited.count(v))
     	return;
 
     cout << v << endl;
 
-    marked.insert(v);
+    visited.insert(v);
     for (auto &u : g.edges[v])
-    	walk_graph_dfs_rec(g, u, marked);
+    	walk_graph_dfs_rec(g, u, visited);
 }
 
 // Depth-First-Search (iterative)
@@ -66,19 +66,19 @@ void walk_graph_dfs_rec(Graph &g, int v, set<int> &marked) {
 void walk_graph_dfs_iter(Graph &g, int v) {
     // TODO
     stack<int> frontier;
-    set<int>   marked;
+    set<int>   visited;
 
     frontier.push(v);
 
     while (!frontier.empty()) {
     	auto n = frontier.top(); frontier.pop();
 
-    	if (marked.count(n))
+    	if (visited.count(n))
     	    continue;
 
     	cout << n << endl;
 
-    	marked.insert(n);
+    	visited.insert(n);
 
     	for (auto it = g.edges[n].rbegin(); it != g.edges[n].rend(); it++)
     	    frontier.push(*it);
@@ -90,19 +90,19 @@ void walk_graph_dfs_iter(Graph &g, int v) {
 void walk_graph_bfs_iter(Graph &g, int v) {
     // TODO
     queue<int> frontier;
-    set<int>   marked;
+    set<int>   visited;
 
     frontier.push(v);
 
     while (!frontier.empty()) {
     	auto n = frontier.front(); frontier.pop();
 
-    	if (marked.count(n))
+    	if (visited.count(n))
     	    continue;
 
     	cout << n << endl;
 
-    	marked.insert(n);
+    	visited.insert(n);
 
     	for (auto &u : g.edges[n])
     	    frontier.push(u);
@@ -112,11 +112,11 @@ void walk_graph_bfs_iter(Graph &g, int v) {
 // Walk graph dispatch function
 
 void walk_graph(Graph &g, int root, WalkType w) {
-    set<int> marked;
+    set<int> visited;
 
     switch (w) {
         case DFS_REC:
-            walk_graph_dfs_rec(g, root, marked);
+            walk_graph_dfs_rec(g, root, visited);
             break;
         case DFS_ITER:
             walk_graph_dfs_iter(g, root);
